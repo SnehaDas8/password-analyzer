@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password Strength Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ribbon">
+  <h1><b>Password Strength Analyzer</b></h1></div>
+  <h2>Instantly check the strength of your password and get tips to make it stronger. </h2>
+  <main class="card-container">
+   
+    <p class="subtitle">Your password is analyzed but never stored.</p>
+   <p>Unsure about your password? Ask us.</p>
+
+   <div class="input-row">
+      <input type="password" id="pw" placeholder="Type a password" autocomplete="off" aria-label="Password">
+      <button type="button" id="toggle" aria-label="Show or hide password">Copy Password</button>
+    </div>
+
+    <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" ariavaluenow="0" id="meter">
+      <div class="meter-fill" id="bar"></div>
+    </div>
+    <p class="status" id="status">Start typing to see your result.</p>
+
+    <section id="details" hidden>
+      <h2>Checklist</h2>
+      <ul id="checklist"></ul>
+
+      <h2>Issues found</h2>
+      <ul id="issues"></ul>
+
+      <h2>Recommendations</h2>
+      <ul id="tips"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

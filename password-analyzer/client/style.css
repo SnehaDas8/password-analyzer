@@ -1,0 +1,101 @@
+* { box-sizing: border-box; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  margin: 0;
+  padding: 24px 16px;
+}
+.ribbon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 16px;
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  
+}
+.card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 78px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+.card-container {
+  margin-top: 80px;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 78px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  position: absolute;
+
+  margin: 0;
+  text-align: center;
+  font-size: 3 rem;
+}
+h2 { font-size: 1rem;
+  display :flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+   margin: 0;  
+  top: 100px;
+width: 100%;
+left: 50%;
+  padding: 0 16px;
+  transform: translateX(-50%);}
+
+.subtitle { margin: 0 0 20px; color: #64748b; font-size: 0.9rem; }
+
+.input-row { display: flex; gap: 8px; }
+input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+input:focus, button:focus-visible { outline: 3px solid #93c5fd; }
+button {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.meter { height: 12px; background: #e2e8f0; border-radius: 6px; margin-top: 16px; overflow: hidden; }
+.meter-fill { height: 100%; width: 0; background: #94a3b8; transition: width 0.25s, background 0.25s; }
+.status { font-weight: 600; margin: 8px 0 0; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+li { padding: 4px 0; font-size: 0.95rem; }
+#checklist li.pass::before { content: "\2713  "; color: #16a34a; font-weight: bold; }
+#checklist li.fail::before { content: "\2717  "; color: #94a3b8; font-weight: bold; }
+#issues li::before { content: "\26A0  "; color: #d97706; }
+#tips li::before { content: "\2192  "; color: #2563eb; }
+
+.very-weak   { background: #dc2626; }
+.weak        { background: #ea580c; }
+.fair        { background: #eab308; }
+.strong      { background: #84cc16; }
+.very-strong { background: #16a34a; }
