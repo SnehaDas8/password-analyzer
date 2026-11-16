@@ -1,6 +1,6 @@
 # Password Strength Analyzer
 
-Analyzes a password's strength (length, character variety, entropy, common
+Analyzes a password's strength (length, character variety, common
 patterns) and gives recommendations.
 
 **Tech:** JavaScript, Node.js, Express.js (React frontend planned as Stage 3)
@@ -51,7 +51,7 @@ password-analyzer/
 
 `POST /api/analyze` with `{ "password": "..." }`
 
-Returns `score`, `label`, `length`, `entropy`, `checks`, `issues`, `recommendations`.
+Returns `score`, `label`, `length`, `checks`, `issues`, `recommendations`.
 Errors: 400 (invalid input), 429 (rate limit), 500 (server error).
 
 ## Security decisions

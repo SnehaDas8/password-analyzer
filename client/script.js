@@ -4,6 +4,7 @@ const meter = document.getElementById("meter");
 const bar = document.getElementById("bar");
 const statusEl = document.getElementById("status");
 const details = document.getElementById("details");
+const recommendationSection = document.getElementById("recommendation-section");
 const checklist = document.getElementById("checklist");
 const issuesEl = document.getElementById("issues");
 const tipsEl = document.getElementById("tips");
@@ -50,6 +51,7 @@ function reset() {
   meter.setAttribute("aria-valuenow", 0);
   statusEl.textContent = "Start typing to see your result.";
   details.hidden = true;
+  recommendationSection.hidden = true;
 }
 
 function render(r) {
@@ -57,7 +59,7 @@ function render(r) {
   bar.style.width = r.score + "%";
   bar.className = "meter-fill " + cls;
   meter.setAttribute("aria-valuenow", r.score);
-  statusEl.textContent = `${r.label} (${r.score}/100), about ${r.entropy} bits of entropy`;
+  statusEl.textContent = `${r.label} (${r.score}/100)`;
 
   checklist.replaceChildren();
   Object.keys(CHECK_LABELS).forEach((key) => {
@@ -70,6 +72,7 @@ function render(r) {
   fillList(issuesEl, r.issues.length ? r.issues.map((i) => i.message) : ["No weak patterns found"]);
   fillList(tipsEl, r.recommendations);
   details.hidden = false;
+  recommendationSection.hidden = false;
 }
 
 input.addEventListener("input", () => {
@@ -88,6 +91,7 @@ input.addEventListener("input", () => {
       if (err.name === "AbortError") return;
       statusEl.textContent = "Could not reach the server. Is it running?";
       details.hidden = true;
+      recommendationSection.hidden = true;
     }
   }, 300);
 });

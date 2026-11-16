@@ -9,7 +9,7 @@
 <body>
   <div class="ribbon">
   <h1><b>Password Strength Analyzer</b></h1></div>
-  <h2>Instantly check the strength of your password and get tips to make it stronger. </h2>
+  <h2 class="page-subtitle">Instantly check the strength of your password and get tips to make it stronger.</h2>
   <main class="card-container">
    
     <p class="subtitle">Your password is analyzed but never stored.</p>
@@ -26,16 +26,23 @@
     <p class="status" id="status">Start typing to see your result.</p>
 
     <section id="details" hidden>
-      <h2>Checklist</h2>
-      <ul id="checklist"></ul>
-
-      <h2>Issues found</h2>
-      <ul id="issues"></ul>
-
-      <h2>Recommendations</h2>
-      <ul id="tips"></ul>
+      <div class="detail-group">
+        <h2>Checklist</h2>
+        <ul id="checklist"></ul>
+      </div>
+      <div class="detail-column">
+        <div class="detail-group">
+          <h2>Issues found</h2>
+          <ul id="issues"></ul>
+        </div>
+      </div>
     </section>
   </main>
+
+  <section id="recommendation-section" hidden>
+    <h2>RECOMMENDATION</h2>
+    <ul id="tips"></ul>
+  </section>
 
   <script src="script.js"></script>
 </body>

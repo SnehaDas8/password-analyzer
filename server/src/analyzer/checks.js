@@ -6,16 +6,6 @@ const hasUpper = (p) => /[A-Z]/.test(p);
 const hasDigit = (p) => /\d/.test(p);
 const hasSymbol = (p) => /[^A-Za-z0-9\s]/.test(p);
 
-// ---------- Entropy: length x log2(pool size) ----------
-function entropy(p) {
-  let pool = 0;
-  if (hasLower(p)) pool += 26;
-  if (hasUpper(p)) pool += 26;
-  if (hasDigit(p)) pool += 10;
-  if (hasSymbol(p)) pool += 33;
-  return pool ? Math.round(p.length * Math.log2(pool) * 10) / 10 : 0;
-}
-
 // ---------- Pattern detectors ----------
 const hasRepeat = (p) => /(.)\1{2,}/.test(p); // aaa, 111
 
@@ -81,7 +71,7 @@ function findCommonWord(p) {
 }
 
 module.exports = {
-  hasLower, hasUpper, hasDigit, hasSymbol, entropy,
+  hasLower, hasUpper, hasDigit, hasSymbol,
   hasRepeat, hasYear, hasSequence, hasKeyboardWalk,
   isCommonPassword, findCommonWord, normalizeLeet,
 };

@@ -13,7 +13,6 @@ function analyzePassword(password) {
     minLength: length >= 12,
   };
 
-  const entropyBits = c.entropy(password);
   const issues = [];
 
   if (c.isCommonPassword(password)) {
@@ -30,15 +29,14 @@ function analyzePassword(password) {
   if (/^\d+$/.test(password)) issues.push({ type: "digits_only", message: "Uses digits only" });
 
   const score = calculateScore({
-    length, checks, entropyBits, issueTypes: issues.map((i) => i.type),
+    length, checks, issueTypes: issues.map((i) => i.type),
   });
 
   return {
     score,
     label: labelFor(score),
     length,
-    entropy: entropyBits,
-    checks,
+     checks,
     issues,
     recommendations: buildRecommendations({ length, checks, issues, score }),
   };

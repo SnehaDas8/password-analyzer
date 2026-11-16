@@ -1,4 +1,4 @@
-// Score = length points + variety points + entropy bonus - penalties (0 to 100)
+// Score = length points + variety points - penalties (0 to 100)
 
 function labelFor(score) {
   if (score < 25) return "Very Weak";
@@ -8,11 +8,10 @@ function labelFor(score) {
   return "Very Strong";
 }
 
-function calculateScore({ length, checks, entropyBits, issueTypes }) {
-  const lengthPoints = Math.min(length, 20) * 2; // max 40
+function calculateScore({ length, checks, issueTypes }) {
+  const lengthPoints = Math.min(length, 20) * 2.5; // max 50
   const classes = [checks.hasLower, checks.hasUpper, checks.hasDigit, checks.hasSymbol];
-  const varietyPoints = classes.filter(Boolean).length * 10; // max 40
-  const entropyPoints = Math.min((entropyBits / 128) * 20, 20); // max 20
+  const varietyPoints = classes.filter(Boolean).length * 12.5; // max 50
 
   const PENALTIES = {
     repeat: 10,
@@ -24,7 +23,7 @@ function calculateScore({ length, checks, entropyBits, issueTypes }) {
     digits_only: 10,
   };
 
-  let score = lengthPoints + varietyPoints + entropyPoints;
+  let score = lengthPoints + varietyPoints;
   for (const type of issueTypes) {
     score -= PENALTIES[type] || 0;
   }

@@ -61,7 +61,7 @@ test("random mixed 16-char password is Very Strong", () => {
 
 test("response has the agreed shape", () => {
   const r = analyzePassword("Hello123!");
-  for (const key of ["score", "label", "length", "entropy", "checks", "issues", "recommendations"]) {
+  for (const key of ["score", "label", "length", "checks", "issues", "recommendations"]) {
     assert.ok(key in r, `missing ${key}`);
   }
   assert.ok(r.score >= 0 && r.score <= 100);
